@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Maven+Pro&display=swap');
 @import "bootstrap";
+@import "font-awesome";
 
 body {
   background: image_url('linen.png');
@@ -27,9 +28,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar {
-  //background-image: image_url('tex2res4.png');
-  box-shadow: 0px 1px 3px #2a2a2a;
+  background-image: image_url('tex2res4.png');
+  box-shadow: 0px 1px 3px #282728;
   font-family: 'Maven Pro', sans-serif;
+  background-color: #282728;
 }
 
 .navbar-inverse .navbar-brand {
