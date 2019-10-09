@@ -14,6 +14,10 @@ def create
   redirect_to root_path
 end
 
+def show
+  @place = Place.find(params[:id])
+end
+
 #pagination
 def index
 @places = Place.paginate(page: params[:page], per_page: 1)
