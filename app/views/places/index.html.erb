@@ -4,11 +4,15 @@
     <br />
     <i><%= place.address %></i><br /><br />
     <p><%= place.description %></p><br />
+    <a href="/places/favorite" class="btn btn-dark">
+      Like
+    </a>
 
     <% if place.user.present? %>
      <small><%= place.user.email %></small>
     <% end %>
   </div>
 <% end %>
-
-<%= will_paginate @places %>
+<div class="pagination px-3">
+  <%= will_paginate @places %>
+</div>
