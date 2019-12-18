@@ -1,9 +1,19 @@
-<% @places.each do |place| %>
-  <div class="booyah-box col-10 offset-1">
+    <% @places.each do |place| %>
+    <div class="booyah-box col-10 offset-1">
     <h1><%= link_to place.name, place_path(place) %></h1>
     <br />
     <i><%= place.address %></i><br /><br />
     <p><%= place.description %></p><br />
+
+<% place.photos.each do |photo| %>
+      <div class="col-4 offset-4">
+        <%= image_tag photo.picture.url, class: 'img-fluid' %>
+        <%= photo.caption %>
+      </div>
+    <% end %>
+
+
+
     <a href="/places/favorite" class="btn btn-dark">
       Like
     </a>
@@ -23,7 +33,11 @@
     </blockquote>
   </div>
 <% end %>
-<div class="pagination px-3">
-  <%= will_paginate @places %>
+
 </div>
 <% end %>
+<span>
+<div class="pagination px-3 center">
+  <%= will_paginate @places, class: 'center text-center'%>
+</div>
+</span>

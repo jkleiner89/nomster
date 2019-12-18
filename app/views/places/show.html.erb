@@ -36,10 +36,40 @@
   <div class="float-right">
     <% if current_user && current_user == @place.user %>
     <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myPictureModal">
+      Photo Button
+    </button>
     <%= link_to 'Destroy', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger' %>
     <% end %>
     </div>
 </div>
+
+<!-- Modal -->
+    <div class="modal fade" id="myPictureModal" tabindex="-1" role="dialog" aria-labelledby="myPictureModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <h4 class="modal-title center" id="myPictureModalLabel">Please submit your photo</h4>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+
+            </div>
+            <div class="modal-body d-flex-column">
+              <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+              <div >
+                <%= f.input :picture %>
+                <%= f.submit "Add a Photo", class: 'btn btn-primary btn-sm' %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+        </div>
+      </div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -74,7 +104,6 @@
     </div>
   <% end %>
 </div>
-<%= debug(params) %>
 <div>
   <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
     <%= f.input :picture %>
